@@ -5,6 +5,7 @@ let recordedChunks = []
 exports.createVideoFile = createVideoFile
 
 exports.handleDataAvailable = function (e) {
+  console.log('Push chunk', e);
   recordedChunks.push(e.data)
 }
 

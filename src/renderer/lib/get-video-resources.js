@@ -7,5 +7,5 @@ module.exports = async function getVideoSources() {
       types: ['screen', 'window']
     })
 
-  invokeContextMenu(inputSources, 'input')
+  invokeContextMenu(inputSources, 'input');
 }

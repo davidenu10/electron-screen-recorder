@@ -6,15 +6,15 @@ const isDev = process.env.MODE === 'development'
 require('./lib/events')
 
 if (require('electron-squirrel-startup')) {
-    app.quit()
+  app.quit()
 }
 
 Menu.setApplicationMenu(null)
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 625,
-    height: 556,
+    width: 600,
+    height: 600,
     webPreferences: {
       nodeIntegration: true
     }
@@ -29,23 +29,23 @@ const createWindow = () => {
     )
   )
 
-  if (isDev) {
-      mainWindow
-        .webContents
-        .openDevTools()
-  }
+  // if (isDev) {
+  mainWindow
+    .webContents
+    .openDevTools()
+  // }
 }
 
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-      app.quit()
+    app.quit()
   }
 })
 
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
+    createWindow()
   }
 })

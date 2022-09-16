@@ -1,15 +1,12 @@
-const { dialog } = require('electron').remote
+const { app } = require('electron').remote
 const { createVideoFile } = require('./handlers')
 
-async function exportVideo (ext) { 
-  const { filePath } =
-    await dialog.showSaveDialog({
-      buttonLabel: 'Save video',
-      defaultPath: `vid-${Date.now()}.${ext}`
-    })
-
+async function exportVideo(ext) {
+  const tempPath = `${app.getPath("appData")}`;
+  const filePath = `${tempPath}\\electron-screen-recorder\\output\\vid-${Date.now()}.${ext}`;
+  console.log(filePath);
   if (filePath)
-      await createVideoFile(filePath)
+    await createVideoFile(filePath)
 }
 
 module.exports = async function selectSource({ id }) {

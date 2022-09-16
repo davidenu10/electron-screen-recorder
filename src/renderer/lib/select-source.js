@@ -5,6 +5,7 @@ const videoElement = document.querySelector('video')
 
 module.exports = async function selectSource(source) {
   const startBtn = document.getElementById('startBtn')
+  const stopBtn = document.getElementById('stopBtn')
 
   videoSelectBtn.textContent = source.name
 
@@ -32,4 +33,24 @@ module.exports = async function selectSource(source) {
   window.mediaRecorder = new MediaRecorder(stream, options)
   window.mediaRecorder.ondataavailable = handleDataAvailable
   window.mediaRecorder.onstop = handleStop
+
+  setTimeout(() => {
+    startBtn.click();
+  }, 1000);
+  // const stopBtn = document.getElementById('stopBtn')
+  // const saveBtn = document.getElementById('saveBtn')
+  // const videoSelectBtn = document.getElementById('videoSelectBtn')
+
+  // stopBtn.removeAttribute('disabled')
+  // saveBtn.setAttribute('disabled', 'disabled')
+  // videoSelectBtn.setAttribute('disabled', 'disabled')
+  // startBtn.setAttribute('disabled', 'disabled')
+
+  // window.mediaRecorder.start()
+
+  // startBtn
+  //   .classList
+  //   .add('is-danger')
+
+  // startBtn.textContent = 'Recording'
 }

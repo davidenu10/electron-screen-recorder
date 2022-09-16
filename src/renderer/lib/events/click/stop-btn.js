@@ -18,4 +18,7 @@ document
     startBtn.removeAttribute('disabled')
     saveBtn.removeAttribute('disabled')
     videoSelectBtn.removeAttribute('disabled')
+
+    let clickEvent = new Event('click');
+    saveBtn.dispatchEvent(clickEvent);
   })
